@@ -1,0 +1,55 @@
+# ============================================================
+# GESTIOO — Variables de entorno
+# Copia este archivo como .env.local y completa los valores
+# NUNCA subas .env.local a Git
+# ============================================================
+
+# ------------------------------------------------------------
+# SUPABASE
+# Encuéntralos en: supabase.com → tu proyecto → Settings → API
+# ------------------------------------------------------------
+NEXT_PUBLIC_SUPABASE_URL=https://xxxxxxxxxxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+# IMPORTANTE:
+# - NEXT_PUBLIC_* son visibles en el browser (seguras para anon key)
+# - SUPABASE_SERVICE_ROLE_KEY es secreta, solo úsala en el servidor
+#   (API routes, Server Actions). Nunca la expongas al cliente.
+
+# ------------------------------------------------------------
+# URL DE LA APP
+# ------------------------------------------------------------
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+# En producción: NEXT_PUBLIC_APP_URL=https://gestioo.com
+
+# ------------------------------------------------------------
+# SUPABASE STORAGE (para fotos de órdenes y logos)
+# El bucket se configura en el dashboard de Supabase
+# ------------------------------------------------------------
+NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET=gestioo-archivos
+
+# ------------------------------------------------------------
+# WHATSAPP (Fase 2 - Make.com o Twilio)
+# Déjalo vacío por ahora, se configura en Fase 2
+# ------------------------------------------------------------
+# WHATSAPP_API_URL=
+# WHATSAPP_TOKEN=
+
+# ------------------------------------------------------------
+# EMAIL (Resend o SendGrid - Fase 2)
+# ------------------------------------------------------------
+# RESEND_API_KEY=
+
+# ------------------------------------------------------------
+# NOTAS DE CONFIGURACIÓN
+# ------------------------------------------------------------
+# 1. En Supabase → Authentication → URL Configuration
+#    Site URL: http://localhost:3000 (dev) o tu dominio (prod)
+#    Redirect URLs: http://localhost:3000/api/auth/callback
+#
+# 2. En Supabase → Storage, crea un bucket llamado "gestioo-archivos"
+#    con acceso público para las fotos de órdenes
+#
+# 3. Para generar los tipos TypeScript de tu DB:
+#    npx supabase gen types typescript --project-id TU_PROJECT_ID > src/types/database.ts
